@@ -1,0 +1,4 @@
+#Sun Sep 02 15:09:09 IST 2018
+base.0=/home/as3eem/Desktop/ft/build/app/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

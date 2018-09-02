@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">714622012214-d6rs5rpvh4optunu85ldpcvhb67l47tb.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://funtreat-88df0.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">714622012214</string>
+    <string name="google_api_key" translatable="false">AIzaSyC5Y6EfZjAqWKbN-O4rkmzVAXg40BnkNY4</string>
+    <string name="google_app_id" translatable="false">1:714622012214:android:93b1c11129461585</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC5Y6EfZjAqWKbN-O4rkmzVAXg40BnkNY4</string>
+    <string name="google_storage_bucket" translatable="false">funtreat-88df0.appspot.com</string>
+    <string name="project_id" translatable="false">funtreat-88df0</string>
+</resources>

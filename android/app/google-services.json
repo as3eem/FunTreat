@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "714622012214",
+    "firebase_url": "https://funtreat-88df0.firebaseio.com",
+    "project_id": "funtreat-88df0",
+    "storage_bucket": "funtreat-88df0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714622012214:android:93b1c11129461585",
+        "android_client_info": {
+          "package_name": "com.funtreat.www.ft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714622012214-sjboogsnhs1phlb6ag05r0cb8n0vgg55.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.funtreat.www.ft",
+            "certificate_hash": "8b478d995766c59a2d9c26e30a5a7e055c0d3ffd"
+          }
+        },
+        {
+          "client_id": "714622012214-d6rs5rpvh4optunu85ldpcvhb67l47tb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5Y6EfZjAqWKbN-O4rkmzVAXg40BnkNY4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714622012214-d6rs5rpvh4optunu85ldpcvhb67l47tb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
