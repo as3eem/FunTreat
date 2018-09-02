@@ -35,7 +35,7 @@
         android:name="io.flutter.app.FlutterApplication"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="ft" >
+        android:label="FunTreat Codefest" >
         <activity
             android:name="com.funtreat.www.ft.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"

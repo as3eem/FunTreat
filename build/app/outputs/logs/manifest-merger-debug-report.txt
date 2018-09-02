@@ -124,7 +124,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] /home/as3eem/.gradle/caches/t
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.4] /home/as3eem/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.4.aar/1d607dfa5f44e7ff005c7f1a794b39ca/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:15.0.4] /home/as3eem/.gradle/caches/transforms-1/files-1.1/play-services-measurement-base-15.0.4.aar/1d607dfa5f44e7ff005c7f1a794b39ca/AndroidManifest.xml:22:5-20
 	android:label
-		ADDED from /home/as3eem/Desktop/ft/android/app/src/main/AndroidManifest.xml:17:9-27
+		ADDED from /home/as3eem/Desktop/ft/android/app/src/main/AndroidManifest.xml:17:9-42
 	android:icon
 		ADDED from /home/as3eem/Desktop/ft/android/app/src/main/AndroidManifest.xml:18:9-43
 	android:name
