@@ -1,5 +1,5 @@
-name: ft
-description: A new Flutter application.
+name: Funtreat
+description: An all new app to order food at your doorsteps.
 
 dependencies:
   flutter:
@@ -15,6 +15,7 @@ dependencies:
   mailer: ^1.2.3
   url_launcher: ^3.0.3
   connectivity: ^0.3.1
+  firebase_admob: ^0.6.1
 
 dev_dependencies:
   flutter_test:

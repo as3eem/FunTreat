@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ft/review.dart';
-import 'package:ft/successfullyPlaced.dart';
+import 'review.dart';
+import 'successfullyPlaced.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
 class Address extends StatefulWidget {
   @override
@@ -9,6 +10,56 @@ class Address extends StatefulWidget {
 }
 
 class _AddressState extends State<Address> {
+
+  static final MobileAdTargetingInfo targetInfo = new MobileAdTargetingInfo(
+    testDevices: <String>[],
+    keywords: <String>['food','food delivery', 'delivery'],
+    birthday: new DateTime.now(),
+    childDirected: true,
+    gender: MobileAdGender.unknown,
+  );
+
+
+  BannerAd _bannerAd;
+  InterstitialAd _interstitialAd;
+
+
+  BannerAd createBannerAd(){
+    return new BannerAd(
+        adUnitId: BannerAd.testAdUnitId,
+        size: AdSize.banner,
+        targetingInfo: targetInfo,
+        listener: (MobileAdEvent event){
+          print("Banner Event $event");
+        }
+    );
+  }
+
+
+  InterstitialAd createInterAd(){
+    return new InterstitialAd(
+        adUnitId: BannerAd.testAdUnitId,
+        targetingInfo: targetInfo,
+        listener: (MobileAdEvent event){
+          print("Interstitialad Event $event");
+        }
+    );
+  }
+
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
+    _bannerAd=createBannerAd()..load()..show(anchorType: AnchorType.bottom);
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    _interstitialAd?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,16 +94,25 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
   final TextEditingController _ph= new TextEditingController();
   final TextEditingController _add= new TextEditingController();
   final TextEditingController _eml= new TextEditingController();
+
   var dt = new DateTime.now();
+
   String _email = '';
   String _name = '';
   String _phone = '';
   String _address = '';
-  bool _autovalidate = false;
+
+  bool _autovalidate = true;
+  bool _form_error1 = false;
+  bool _form_error2 = false;
+  bool _form_error3 = false;
+  bool _form_error4 = false;
+
   @override
   void initState() {
     super.initState();
     getTestPrefs();
+    FirebaseAdMob.instance.initialize(appId: FirebaseAdMob.testAppId);
   }
 
 
@@ -79,18 +139,49 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
 
   void _submit() async {
     final form = _formKey.currentState;
-    if (form.validate()) {
+    if (true) {
       form.save();
       _as3eem_save_address_prefs();
-    }
-    else {
-      setState(() {
-        _autovalidate = true;
-      });
     }
   }
   void _executeShopping() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => successfullyPlaced()));
+  }
+
+
+  static final MobileAdTargetingInfo targetInfo = new MobileAdTargetingInfo(
+    testDevices: <String>[],
+    keywords: <String>['food','food delivery', 'delivery'],
+    birthday: new DateTime.now(),
+    childDirected: true,
+    gender: MobileAdGender.unknown,
+  );
+
+
+  BannerAd _bannerAd;
+  InterstitialAd _interstitialAd;
+
+
+  BannerAd createBannerAd(){
+    return new BannerAd(
+        adUnitId: BannerAd.testAdUnitId,
+        size: AdSize.banner,
+        targetingInfo: targetInfo,
+        listener: (MobileAdEvent event){
+          print("Banner Event $event");
+        }
+    );
+  }
+
+
+  InterstitialAd createInterAd(){
+    return new InterstitialAd(
+        adUnitId: BannerAd.testAdUnitId,
+        targetingInfo: targetInfo,
+        listener: (MobileAdEvent event){
+          print("Interstitialad Event $event");
+        }
+    );
   }
 
 
@@ -110,7 +201,11 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
                   controller: _nm,
                   validator: (val){
                     if (val.isEmpty){
+                      _form_error1=true;
                       return 'Enter your name';
+                    }
+                    else{
+                      _form_error1=false;
                     }
                   },
                   decoration: new InputDecoration(labelText: "Name",border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0))),
@@ -126,7 +221,11 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
                   onSaved: (val) => _email=val,
                   validator: (val) {
                     if (val.isEmpty || !val.contains('@')){
+                      _form_error2=true;
                       return 'Please enter Email in correct format.';
+                    }
+                    else{
+                      _form_error2=false;
                     }
                   },
                   decoration: new InputDecoration(labelText: "Email",border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0))),
@@ -142,7 +241,11 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
                   controller: _ph,
                   validator: (val) {
                     if (val.length != 10){
+                      _form_error3=true;
                       return "Enter 10 digits only";
+                    }
+                    else{
+                      _form_error3=false;
                     }
                   },
                   decoration: new InputDecoration(labelText: "Mobile",border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0))),
@@ -159,7 +262,11 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
                   onSaved: (val) => _address=val,
                   validator: (val) {
                     if (val.length < 5){
+                      _form_error4=true;
                       return "Provide appropriate address";
+                    }
+                    else{
+                      _form_error4=false;
                     }
                   },
                   decoration: new InputDecoration(labelText: "Address",border: OutlineInputBorder(borderRadius: BorderRadius.circular(0.0))),
@@ -169,12 +276,11 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
                   padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.3,vertical: 10.0),
                     child: new RaisedButton(
                       onPressed: (){
-                        setState(() {
-                          _autovalidate=true;
-                        });
-                        _submit();
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => review()));
-
+                        if(!_form_error1 && !_form_error2 && !_form_error3 && !_form_error4){
+                          _submit();
+                          createInterAd()..load()..show();
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => review()));
+                        }
                       },
                       child: new Text("Confirm",style: TextStyle(color: Colors.white, fontSize: 19.0),),
                       color: Colors.deepOrange,
@@ -185,6 +291,5 @@ class _as3eem_address_templateState extends State<as3eem_address_template> {
       )
     );
   }
-
 }
 

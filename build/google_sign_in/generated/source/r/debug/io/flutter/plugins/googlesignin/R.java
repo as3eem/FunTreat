@@ -186,8 +186,7 @@ public final class R {
         public static int common_open_on_phone = 0x7f150010;
         public static int common_signin_button_text = 0x7f150011;
         public static int common_signin_button_text_long = 0x7f150012;
-        public static int pre_release_do_not_ship = 0x7f150013;
-        public static int status_bar_notification_info_overflow = 0x7f150014;
+        public static int status_bar_notification_info_overflow = 0x7f150013;
     }
     public static final class style {
         public static int TextAppearance_Compat_Notification = 0x7f160001;

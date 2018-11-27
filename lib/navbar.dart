@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
-import 'package:ft/AboutUs.dart';
-import 'package:ft/list.dart';
+import 'AboutUs.dart';
+import 'list.dart';
 class navbar extends StatefulWidget {
 
   final AnimationController controller;

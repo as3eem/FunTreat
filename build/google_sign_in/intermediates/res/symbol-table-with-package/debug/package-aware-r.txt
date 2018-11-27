@@ -161,8 +161,7 @@ int string common_google_play_services_wear_update_text 0x7f15000f
 int string common_open_on_phone 0x7f150010
 int string common_signin_button_text 0x7f150011
 int string common_signin_button_text_long 0x7f150012
-int string pre_release_do_not_ship 0x7f150013
-int string status_bar_notification_info_overflow 0x7f150014
+int string status_bar_notification_info_overflow 0x7f150013
 int style TextAppearance_Compat_Notification 0x7f160001
 int style TextAppearance_Compat_Notification_Info 0x7f160002
 int style TextAppearance_Compat_Notification_Info_Media 0x7f160003

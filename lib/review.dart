@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ft/classes/cart_list.dart';
-import 'package:ft/classes/plants_list.dart';
+import 'classes/cart_list.dart';
+import 'classes/plants_list.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ft/splashConfirm.dart';
+import 'splashConfirm.dart';
 import 'dart:async';
 import 'package:mailer/mailer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -40,7 +40,6 @@ class _reviewState extends State<review> {
 
     return emailTemp;
   }
-
 
   void send(){
     print(setText());
@@ -81,12 +80,12 @@ class _reviewState extends State<review> {
         });
   }
 
-
-
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> couponList;
   final CollectionReference collectionReference = Firestore.instance.collection('Coupons');
+
   int sending=0;
+
   @override
   void initState() {
     super.initState();
@@ -106,6 +105,7 @@ class _reviewState extends State<review> {
 //      get prefs here
   _getTestPrefs();
   }
+
   var _coupon=0;
   final GlobalKey<FormState> _Coupon_Code = GlobalKey<FormState>();
   final TextEditingController _couponText= new TextEditingController();
@@ -114,6 +114,7 @@ class _reviewState extends State<review> {
 
   @override
   Widget build(BuildContext context) {
+    var device=MediaQuery.of(context).size;
     return sending==0?new Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -130,7 +131,7 @@ class _reviewState extends State<review> {
                 return new ListTile(
                   title: Text("${plantsList[CartList.cartItems[pos]].plantName}"),
                   leading: new Text('${plantsList[CartList.cartItems[pos]].quantity} x '),
-                  trailing: new Text("\$${plantsList[CartList.cartItems[pos]].price * plantsList[CartList.cartItems[pos]].quantity}"),
+                  trailing: new Text("\₹${plantsList[CartList.cartItems[pos]].price * plantsList[CartList.cartItems[pos]].quantity}"),
                 );
             }
             else{
@@ -208,7 +209,7 @@ class _reviewState extends State<review> {
                       :new ListTile(
                     leading: new Icon(Icons.local_offer),
                     title: new Text("Coupon Code Applied",style: TextStyle(fontWeight: FontWeight.bold),),
-                    subtitle: new Text("A total of ${_coupon}% discount has been offered."),
+                    subtitle: new Text("A total of ${_coupon}% discount has been offered on your subtotal."),
                     trailing: new Text("- ₹${(_coupon*as3eem/100).toStringAsFixed(0)}"),
                   ),
 
@@ -217,7 +218,7 @@ class _reviewState extends State<review> {
                   new ListTile(
                       leading: Icon(Icons.attach_money),
                       title: new Text("Total",style: TextStyle(fontWeight: FontWeight.bold),),
-                      trailing: as3eem>=300.00?Text("₹${(as3eem*(1-_coupon/100)).toStringAsFixed(0)}"):Text("₹${((as3eem+ 20.00)*(1-_coupon/100)).toStringAsFixed(0)}")
+                      trailing: as3eem>=300.00?Text("₹${(as3eem*(1-_coupon/100)).toStringAsFixed(0)}"):Text("₹${((as3eem)*(1-_coupon/100)+20.00).toStringAsFixed(0)}")
                   ),
                   new Divider(),
 
@@ -226,11 +227,11 @@ class _reviewState extends State<review> {
                     child: new FloatingActionButton(
                         onPressed: (){
                           setState(() {
-                            if (as3eem>30.00){
+                            if (as3eem>=300.00){
                               total=(as3eem*(1-_coupon/100)).toStringAsFixed(0);
                             }
                             else{
-                              total=((as3eem+ 20.00)*(1-_coupon/100)).toStringAsFixed(0);
+                              total=((as3eem)*(1-_coupon/100) + 20.00).toStringAsFixed(0);
                             }
                           });
                           send();
@@ -246,7 +247,24 @@ class _reviewState extends State<review> {
           }
       )
     )
-        :new Center(child: new CircularProgressIndicator(strokeWidth: 52.0,),);
+        :new Scaffold(
+      backgroundColor: Colors.white,
+      body: new Center(
+        child: new SizedBox(
+            height: device.height*0.80,
+            width: device.width*0.80,
+            child: new Container(
+              child: new Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new CircularProgressIndicator(strokeWidth: 52.0,),
+                new Padding(padding: const EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 0.0)),
+                new Text("Confirming Order",style: new TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 16.0)),
+              ],
+            ),)
+        ),
+      ),
+    );
   }
 }
 

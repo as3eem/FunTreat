@@ -1,4 +1,10 @@
-#Sun Sep 02 18:51:32 IST 2018
-base.0=/home/as3eem/Desktop/ft/build/app/intermediates/transforms/dexMerger/debug/0
+#Tue Nov 20 08:28:11 IST 2018
+path.2=classes3.dex
+path.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.2=/home/as3eem/Desktop/ft/build/app/intermediates/transforms/dexMerger/debug/0
+base.1=/home/as3eem/Desktop/ft/build/app/intermediates/transforms/dexMerger/debug/0
+base.0=/home/as3eem/Desktop/ft/build/app/intermediates/transforms/dexMerger/debug/0

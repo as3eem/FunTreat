@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/as3eem/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.0/android/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/as3eem/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.0/android/src/debug/shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/as3eem/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.4/android/src/main/shaders"/></dataSet><dataSet config="debug"><source path="/home/as3eem/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.4/android/src/debug/shaders"/></dataSet></merger>

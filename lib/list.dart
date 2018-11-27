@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ft/Cart.dart';
-import 'package:ft/Menu.dart';
+import 'Cart.dart';
+import 'Menu.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 

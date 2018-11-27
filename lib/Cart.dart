@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:ft/Address.dart';
+import 'Address.dart';
 import 'classes/cart_list.dart';
 import 'classes/plants_list.dart';
 import 'cart_item.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 
+const String testDevice = '';
 
 class Cart extends StatefulWidget {
   @override
   _CartState createState() => _CartState();
 }
 
+
 class _CartState extends State<Cart> {
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

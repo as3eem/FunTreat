@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ft/Cart.dart';
-import 'package:ft/wall_screen.dart';
+import 'Cart.dart';
+import 'wall_screen.dart';
 
 
 

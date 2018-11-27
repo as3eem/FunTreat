@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ft/BackDropPage.dart';
-import 'package:ft/noInternet.dart';
+import 'BackDropPage.dart';
+import 'noInternet.dart';
 import 'dart:async';
 import 'classes/shared_prefs_list.dart';
 import 'classes/sharedPrefs.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     };
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Firebase',
+      title: 'Funtreat',
       theme: new ThemeData(
         primarySwatch: Colors.red,
         primaryTextTheme: TextTheme(title: TextStyle(fontFamily: 'Signika'), caption: TextStyle(fontFamily: 'Signika'))
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       Padding(
                         padding: EdgeInsets.only(top: 10.0),
                       ),
-                      Text("FunTreat",style: TextStyle(
+                      Text("Chop Chop",style: TextStyle(
                         color: Colors.white,
                         fontSize: 34.0,
                         fontWeight: FontWeight.bold,
@@ -143,3 +143,7 @@ class _SplashScreenState extends State<SplashScreen> {
         ]));
   }
 }
+
+
+
+
